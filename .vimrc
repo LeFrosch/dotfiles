@@ -1,3 +1,5 @@
+syntax on
+
 set scrolloff=5
 
 set number
