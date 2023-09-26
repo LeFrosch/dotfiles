@@ -1,0 +1,16 @@
+set number
+set noerrorbells
+set incsearch
+
+inoremap jj <Esc>
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+let mapleader = " "
+
+nmap <leader>?  :action GotoAction<CR>
+nmap <leader>f  :action ReformatCode<CR>
