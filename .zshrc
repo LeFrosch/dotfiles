@@ -9,10 +9,10 @@ source $ZSH/oh-my-zsh.sh
 # configure vim
 bindkey -M vicmd "j" up-line-or-beginning-search
 bindkey -M vicmd "k" down-line-or-beginning-search 
-export ZVM_VI_INSERT_ESCAPE_BINDKEY='jj'
+export ZVM_VI_INSERT_ESCAPE_BINDKEY="jj"
 
-export EDITOR='vim'
+export EDITOR="vim"
 
-// how to export to path
-// path+=("/home/daniel/.local/bin")
-export PATH
+# how to export to path
+# path+=("/home/daniel/.local/bin")
+# export PATH
