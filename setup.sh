@@ -14,7 +14,7 @@ cat .ssh/id_ed25519.pub
 
 # fetch dot files
 git init
-git remote add origin git@github.com:LeFrosch/dotfiles.git
+git remote add origin https://github.com/LeFrosch/dotfiles.git
 git fetch --all
 git reset --hard origin/main
 rm -rf .git
@@ -25,3 +25,6 @@ sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 sudo systemctl enable docker --now 
 
 sudo usermod -aG docker $USER
+
+// disable on laptop - causes freezes
+// sudo rmmod intel_rapl_msr
