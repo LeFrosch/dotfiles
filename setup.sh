@@ -1,6 +1,12 @@
 sudo dnf upgrade --refresh
-sudo dnf -y install dnf-plugins-core
-sudo dnf install keepassxc gnome-tweaks zsh vim
+
+# install fusion repositories
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# install packages
+sudo dnf install dnf-plugins-core keepassxc gnome-tweaks zsh vim nvim
+sudo dnf install ffmpeg --allowerasing
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
@@ -26,5 +32,11 @@ sudo systemctl enable docker --now
 
 sudo usermod -aG docker $USER
 
-// disable on laptop - causes freezes
-// sudo rmmod intel_rapl_msr
+# install font
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraMono.zip 
+unzip FiraMono.zip -d .fonts
+rm FiraMono.zip
+fc-cache -fv
+
+# disable on laptop - causes freezes
+# sudo rmmod intel_rapl_msr
