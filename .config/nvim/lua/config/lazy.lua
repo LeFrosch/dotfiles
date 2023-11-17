@@ -30,16 +30,6 @@ local plugins = {
     end
   },
 
-  -- File tree
-  {
-    'kyazdani42/nvim-tree.lua',
-    lazy = false,
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
-    config = function()
-      require('config.nvim-tree')
-    end
-  },
-
   -- LSP
   {
     'neovim/nvim-lspconfig',
@@ -54,16 +44,69 @@ local plugins = {
     end
   },
 
+  -- Linter
+  {
+    'mfussenegger/nvim-lint',
+    config = function()
+      require('config.nvim-lint')
+    end
+  },
+
   -- Autocompletion
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
+      -- Snippet engine
+      'L3MON4D3/LuaSnip',
+
+      -- LSP completions
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
       require('config.nvim-cmp')
     end
   },
+
+  -- Diagonsitcs
+  {
+    "folke/trouble.nvim",
+    config = function()
+      require('config.trouble')
+    end
+  },
+
+  -- Telescope
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+      },
+    },
+    config = function()
+      require('config.nvim-telescope')
+    end
+  },
+
+  -- File browser
+  {
+    'nvim-telescope/telescope-file-browser.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim',
+    }
+  },
+
+  -- Terminal
+  {
+    'akinsho/toggleterm.nvim',
+    config = function()
+      require('config.toggelterm')
+    end
+  }
 }
 
 local opts = {}

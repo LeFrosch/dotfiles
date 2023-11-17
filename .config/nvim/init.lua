@@ -25,24 +25,30 @@ vim.o.undofile = true
 vim.o.completeopt = 'menuone,noselect'
 
 -- mappings
-local mapper = function(mode, key, result)
-  vim.api.nvim_set_keymap(
-    mode,
-    key,
-    result,
-    {noremap = true, silent = true}
+local mapper = function(mode, key, result, desc)
+  vim.keymap.set(
+    mode, key, result,
+    { noremap = true, silent = true, desc = desc }
   )
 end
 
+-- disable sapce
 mapper('n', '<Space>', '<Nop>')
 mapper('v', '<Space>', '<Nop>')
 
+-- disable arrows
 mapper('', '<up>', '<nop>')
 mapper('', '<down>', '<nop>')
 mapper('', '<left>', '<nop>')
 mapper('', '<right>', '<nop>')
 
+-- utils mappings
 mapper('i', 'jj', '<ESC>')
+mapper('n', '<C-s>', '<cmd>wa<cr>', 'Save all')
+
+-- buffer mappings
+mapper('n', '<leader>bv', '<cmd>bo vs<cr>', '[B]uffer Split [V]ertical')
+mapper('n', '<leader>bh', '<cmd>bo sp<cr>', '[B]uffer Split [H]orizontal')
 
 -- plugins
 require('config.lazy')
