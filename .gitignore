@@ -1,0 +1,11 @@
+*
+
+!.config/nvim
+
+!.oh-my-zsh/themes/cat.zsh-theme
+!.ideavimrc
+!.vimrc
+!.zshrc
+!.gitignore
+!setup.sh
+!touchpad.sh
