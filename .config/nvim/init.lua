@@ -18,6 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 -- general settings
 vim.o.errorbells = false
 vim.o.number = true
+vim.o.relativenumber = true
 vim.o.scrolloff = 8
 vim.o.hlsearch = true
 vim.o.undofile = true

@@ -62,7 +62,7 @@ local function visual_search(func)
   end
 end
 
-local function keymap_set(key, func, desc)
+local function keymap_search(key, func, desc)
   vim.keymap.set('n', key, normal_search(func), { desc = desc })
   vim.keymap.set('v', key, visual_search(func), { desc = desc })
 end
@@ -75,15 +75,19 @@ local function switcher()
   }
 end
 
-keymap_set('<leader>?', api.oldfiles, '[?] Find recently opened files')
-keymap_set('<leader><space>', switcher, '[ ] Switcher')
-keymap_set('<leader>/', api.current_buffer_fuzzy_find, '[/] Fuzzily search in current buffer')
-keymap_set('<leader>sf', api.find_files, '[S]earch [F]iles')
-keymap_set('<leader>sh', api.help_tags, '[S]earch [H]elp')
-keymap_set('<leader>sw', api.grep_string, '[S]earch current [W]ord')
-keymap_set('<leader>sg', api.live_grep, '[S]earch by [G]rep')
-keymap_set('<leader>sd', api.diagnostics, '[S]earch [D]iagnostics')
-keymap_set('<leader>sr', api.resume, '[S]earch [R]esume')
+keymap_search('<leader>?', api.oldfiles, '[?] Find recently opened files')
+keymap_search('<leader><space>', switcher, '[ ] Switcher')
+keymap_search('<leader>/', api.current_buffer_fuzzy_find, '[/] Fuzzily search in current buffer')
+keymap_search('<leader>sf', api.find_files, '[S]earch [F]iles')
+keymap_search('<leader>sh', api.help_tags, '[S]earch [H]elp')
+keymap_search('<leader>sw', api.grep_string, '[S]earch current [W]ord')
+keymap_search('<leader>sg', api.live_grep, '[S]earch by [G]rep')
+keymap_search('<leader>sd', api.diagnostics, '[S]earch [D]iagnostics')
+keymap_search('<leader>sr', api.resume, '[S]earch [R]esume')
 
-vim.keymap.set('n', '<leader>fe', '<cmd>Telescope file_browser<cr>', { noremap = true, desc = '[F]ile [E]xplorer' })
-vim.keymap.set('n', '<leader>fl', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', { noremap = true, desc = '[F]ile [L]ocal Browser' })
+vim.keymap.set('n', '<leader>fe', '<cmd>Telescope file_browser<cr>', { desc = '[F]ile [E]xplorer' })
+vim.keymap.set('n', '<leader>fl', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', { desc = '[F]ile [L]ocal Browser' })
+
+vim.keymap.set('n', '<leader>gs', api.git_status, { desc = '[G]it [S]tatus' })
+vim.keymap.set('n', '<leader>gc', api.git_commits, { desc = '[G]it [C]ommits' })
+vim.keymap.set('n', '<leader>gb', api.git_branches, { desc = '[G]it [B]ranches' })

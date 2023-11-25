@@ -6,7 +6,6 @@ end
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }
 
-  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', '<C-n>', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', '<C-q>', '<cmd>q<cr>', opts)
 
@@ -14,6 +13,7 @@ function _G.set_terminal_keymaps()
 
   vim.o.number = false
 
+  -- keymaps only for normal terminals
   if toggle_number() == nil then
     vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
     vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
@@ -22,8 +22,21 @@ function _G.set_terminal_keymaps()
   end
 end
 
+-- set keymap for every terminal
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
+-- layzgit terminal
+local terminal = require('toggleterm.terminal').Terminal
+local lazygit_terminal = terminal:new {
+  cmd = 'lazygit',
+  hidden = true,
+  float_opts = {
+    border = 'none'
+  },
+  direction = 'float'
+}
+
+-- floating terminal array
 local terminal_index = 1
 
 local function next()
@@ -43,6 +56,8 @@ local function current()
 end
 
 local function on_open(term)
+  if (term == lazygit_terminal) then return end
+
   local opts = { buffer = term.bufnr }
 
   vim.keymap.set('t', '<C-k>', next, opts)
@@ -56,7 +71,7 @@ local function on_open(term)
 end
 
 local colors = require('tokyonight.colors').setup()
-
+print(colors.border_highlight)
 require('toggleterm').setup {
   close_on_exit = true,
   shade_terminals = false,
@@ -80,3 +95,9 @@ end
 vim.keymap.set('n', '<leader>tf', current, opts('[T]erminal [F]loating'))
 vim.keymap.set('n', '<leader>tv', '<cmd>bo vs | te<cr>', opts('[T]erminal [V]ertical'))
 vim.keymap.set('n', '<leader>th', '<cmd>bo sp | te<cr>', opts('[T]erminal [H]orizontal'))
+
+local function lazygit()
+  lazygit_terminal:toggle()
+end
+
+vim.keymap.set('n', '<leader>tg', lazygit, opts('[T]erminal [G]it'))
