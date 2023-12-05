@@ -13,7 +13,12 @@ require('tokyonight').setup {
       bg = c.bg_float,
       fg = c.border_highlight,
     }
+    hl.NormalPopup = {
+      bg = c.bg_popup,
+      fg = c.fg_float,
+    }
   end,
 }
 
 vim.cmd.colorscheme('tokyonight')
+

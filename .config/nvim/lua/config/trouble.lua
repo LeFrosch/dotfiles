@@ -22,9 +22,17 @@ end
 
 local trouble = require('trouble')
 
+local function open_float()
+  local _, win = vim.diagnostic.open_float()
+  if win == nil then return end
+
+  vim.api.nvim_win_set_option(win, 'winblend', 0)
+  vim.api.nvim_win_set_option(win, 'winhl', 'NormalFloat:NormalPopup')
+end
+
 mapper('n', '[d', vim.diagnostic.goto_prev, 'Go to previous message')
 mapper('n', ']d', vim.diagnostic.goto_next, 'Go to next message')
-mapper('n', '<leader>df', vim.diagnostic.open_float, '[D]iagnostic [F]loating')
+mapper('n', '<leader>df', open_float, '[D]iagnostic [F]loating')
 
 mapper('n', '<leader>dl', function() trouble.toggle() end, '[D]iagnostic [L]ist')
 mapper('n', '<leader>dd', function() trouble.toggle('document_diagnostics') end, '[D]iagnostic [D]ocument List')

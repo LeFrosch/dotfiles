@@ -10,6 +10,15 @@ cmp.setup {
       snip.lsp_expand(args.body)
     end,
   },
+  window = {
+    completion = cmp.config.window.bordered {
+      border = 'none',
+      winhighlight = 'CursorLine:Visual,Search:None,NormalFloat:NormalPopup',
+    },
+    documentation = cmp.config.window.bordered {
+      winhighlight = 'CursorLine:Visual,Search:None',
+    },
+  },
   completion = {
     completionopt = "menu,menuone,noselect"
   },

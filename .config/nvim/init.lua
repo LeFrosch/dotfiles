@@ -48,7 +48,8 @@ mapper('', '<right>', '<nop>')
 
 -- utils mappings
 mapper('i', 'jj', '<ESC>')
-mapper('n', '<C-s>', '<cmd>wa<cr>', 'Save all')
+mapper('n', '<C-s>', '<cmd>wa<cr>')
+mapper('v', 'Y', '"+y')
 
 -- buffer mappings
 mapper('n', '<leader>bv', '<cmd>bo vs<cr>', '[B]uffer Split [V]ertical')
