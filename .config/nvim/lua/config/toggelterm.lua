@@ -12,6 +12,7 @@ function _G.set_terminal_keymaps()
   vim.keymap.set('n', 'q', '<cmd>q<cr>', opts)
 
   vim.o.number = false
+  vim.o.relativenumber = false
 
   -- keymaps only for normal terminals
   if toggle_number() == nil then

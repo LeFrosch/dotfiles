@@ -23,6 +23,7 @@ vim.o.scrolloff = 8
 vim.o.hlsearch = true
 vim.o.undofile = true
 vim.o.autowriteall = true
+vim.o.wrap = false
 
 vim.o.completeopt = 'menuone,noselect'
 
@@ -50,6 +51,14 @@ mapper('', '<right>', '<nop>')
 mapper('i', 'jj', '<ESC>')
 mapper('n', '<C-s>', '<cmd>wa<cr>')
 mapper('v', 'Y', '"+y')
+
+-- autoclose braces
+-- mapper('i', '{', '{}<Esc>ha')
+-- mapper('i', '(', '()<Esc>ha')
+-- mapper('i', '[', '[]<Esc>ha')
+-- mapper('i', '"', '""<Esc>ha')
+-- mapper('i', "'", "''<Esc>ha")
+-- mapper('i', '`', '``<Esc>ha')
 
 -- buffer mappings
 mapper('n', '<leader>bv', '<cmd>bo vs<cr>', '[B]uffer Split [V]ertical')
