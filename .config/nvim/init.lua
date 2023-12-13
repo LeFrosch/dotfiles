@@ -15,7 +15,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- general settings
+-- settings
 vim.o.errorbells = false
 vim.o.number = true
 vim.o.relativenumber = true
@@ -29,43 +29,11 @@ vim.o.completeopt = 'menuone,noselect'
 
 vim.o.mouse = ''
 
--- mappings
-local mapper = function(mode, key, result, desc)
-  vim.keymap.set(
-    mode, key, result,
-    { noremap = true, silent = true, desc = desc }
-  )
-end
-
--- disable sapce
-mapper('n', '<Space>', '<Nop>')
-mapper('v', '<Space>', '<Nop>')
-
--- disable arrows
-mapper('', '<up>', '<nop>')
-mapper('', '<down>', '<nop>')
-mapper('', '<left>', '<nop>')
-mapper('', '<right>', '<nop>')
-
--- utils mappings
-mapper('i', 'jj', '<ESC>')
-mapper('n', '<C-s>', '<cmd>wa<cr>')
-mapper('v', 'Y', '"+y')
-
--- autoclose braces
--- mapper('i', '{', '{}<Esc>ha')
--- mapper('i', '(', '()<Esc>ha')
--- mapper('i', '[', '[]<Esc>ha')
--- mapper('i', '"', '""<Esc>ha')
--- mapper('i', "'", "''<Esc>ha")
--- mapper('i', '`', '``<Esc>ha')
-
--- buffer mappings
-mapper('n', '<leader>bv', '<cmd>bo vs<cr>', '[B]uffer Split [V]ertical')
-mapper('n', '<leader>bh', '<cmd>bo sp<cr>', '[B]uffer Split [H]orizontal')
-
 -- autosave
 vim.cmd('autocmd! BufLeave * if &modifiable && &buftype ==# "" | :update | endif')
+
+-- mappings
+require('mapping')
 
 -- plugins
 require('config.lazy')

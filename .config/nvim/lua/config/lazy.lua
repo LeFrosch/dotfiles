@@ -1,5 +1,6 @@
 local lazy = require('lazy')
 
+
 local plugins = {
   -- Automatically detects tab settings
   { 'tpope/vim-sleuth' },
@@ -64,6 +65,14 @@ local plugins = {
     },
     config = function()
       require('config.nvim-cmp')
+    end
+  },
+
+  -- Autocomplete braces
+  {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('config.nvim-autopairs')
     end
   },
 
