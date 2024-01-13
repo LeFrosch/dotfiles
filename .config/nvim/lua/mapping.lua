@@ -19,6 +19,7 @@ mapper('', '<right>', '<nop>')
 mapper('i', 'jj', '<ESC>')
 mapper('n', '<C-s>', '<cmd>wa<cr>')
 mapper('v', 'Y', '"+y')
+mapper('v', 'q', '<ESC>')
 
 -- buffer mappings
 mapper('n', '<leader>bv', '<cmd>bo vs<cr>', '[B]uffer Split [V]ertical')

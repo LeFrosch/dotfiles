@@ -54,4 +54,11 @@ function M.toggle()
   get_or_create():toggle()
 end
 
+function M.send(text)
+  local term = get_or_create()
+  if term.job_id == nil then return end
+
+  term:send(text, true)
+end
+
 return M

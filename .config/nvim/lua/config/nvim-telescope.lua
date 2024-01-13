@@ -9,10 +9,12 @@ require('telescope').setup {
       i = {
         ['<C-j>'] = actions.move_selection_next,
         ['<C-k>'] = actions.move_selection_previous,
+        ['<C-q>'] = actions.close,
       },
       n = {
         ['<C-j>'] = actions.move_selection_next,
         ['<C-k>'] = actions.move_selection_previous,
+        ['<C-q>'] = actions.close,
         ['l'] = actions.select_default,
         ['q'] = actions.close,
       }
@@ -80,10 +82,11 @@ keymap_search('<leader><space>', switcher, '[ ] Switcher')
 keymap_search('<leader>/', api.current_buffer_fuzzy_find, '[/] Fuzzily search in current buffer')
 keymap_search('<leader>sf', api.find_files, '[S]earch [F]iles')
 keymap_search('<leader>sh', api.help_tags, '[S]earch [H]elp')
-keymap_search('<leader>sw', api.grep_string, '[S]earch current [W]ord')
 keymap_search('<leader>sg', api.live_grep, '[S]earch by [G]rep')
-keymap_search('<leader>sd', api.diagnostics, '[S]earch [D]iagnostics')
 keymap_search('<leader>sr', api.resume, '[S]earch [R]esume')
+keymap_search('<Leader>ss', api.lsp_workspace_symbols, '[S]earch [S]ymbols')
+
+keymap_search('<leader>ds', api.diagnostics, '[D]iagnostics [S]earch')
 
 vim.keymap.set('n', '<leader>fe', '<cmd>Telescope file_browser<cr>', { desc = '[F]ile [E]xplorer' })
 vim.keymap.set('n', '<leader>fl', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', { desc = '[F]ile [L]ocal Browser' })

@@ -64,7 +64,7 @@ local servers = {
     settings = {
       dart = {
         lineLength = 120
-      },
+      }
     },
     on_attach = on_attach_dart,
   },
@@ -76,7 +76,13 @@ local servers = {
   clangd = {},
 
   -- Elixir
-  elixirls = {},
+  elixirls = {
+    settings = {
+      elixirLS = {
+        dialyzerEnabled = false
+      }
+    }
+  }
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

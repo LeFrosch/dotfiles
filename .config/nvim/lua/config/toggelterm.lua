@@ -31,6 +31,8 @@ function _G.set_terminal_keymaps()
   vim.keymap.set('n', 'q', '<cmd>q<cr>', opts)
   vim.keymap.set('n', '<C-q>', '<cmd>q<cr>', opts)
 
+  vim.keymap.set('v', '<C-q>', '<cmd>q<cr>', opts)
+
   vim.o.number = false
   vim.o.relativenumber = false
 
@@ -64,6 +66,22 @@ end
 -- switch terminal implementation
 local switch_terminal = require('config.switchterm')
 
+local function switch_send_n()
+  local row = unpack(vim.api.nvim_win_get_cursor(0))
+  switch_terminal.send(vim.fn.getline(row))
+end
+
+local function switch_send_v()
+  local backup = vim.fn.getreg('a')
+
+  vim.cmd('silent! normal! "ay') --gv
+  local text = vim.fn.getreg('a')
+
+  vim.fn.setreg('a', backup)
+
+  switch_terminal.send(text)
+end
+
 local function opts(desc)
   return { desc = 'Terminal: ' .. desc, noremap = true, silent = true }
 end
@@ -73,3 +91,5 @@ vim.keymap.set('n', '<leader>tv', '<cmd>bo vs | te<cr>', opts('[T]erminal [V]ert
 vim.keymap.set('n', '<leader>th', '<cmd>bo sp | te<cr>', opts('[T]erminal [H]orizontal'))
 
 vim.keymap.set('n', '<leader>tf', switch_terminal.toggle, opts('[T]erminal [F]loating'))
+vim.keymap.set('n', '<leader>ts', switch_send_n, opts('[T]erminal [S]end current line'))
+vim.keymap.set('v', '<leader>ts', switch_send_v, opts('[T]erminal [S]end selction'))
