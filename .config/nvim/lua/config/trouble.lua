@@ -16,7 +16,7 @@ require('trouble').setup {
 local mapper = function(mode, key, result, desc)
   vim.keymap.set(
     mode, key, result,
-    { noremap = true, silent = true, desc = 'Diagnostics: ' .. desc }
+    { noremap = true, silent = true, desc = desc }
   )
 end
 
@@ -30,10 +30,10 @@ local function open_float()
   vim.api.nvim_win_set_option(win, 'winhl', 'NormalFloat:NormalPopup')
 end
 
-mapper('n', '[d', vim.diagnostic.goto_prev, 'Go to previous message')
-mapper('n', ']d', vim.diagnostic.goto_next, 'Go to next message')
-mapper('n', '<leader>df', open_float, '[D]iagnostic [F]loating')
+mapper('n', '[i', vim.diagnostic.goto_prev, 'Go to previous inspection')
+mapper('n', ']i', vim.diagnostic.goto_next, 'Go to next inspection')
+mapper('n', '<leader>if', open_float, '[I]nspection [F]loating')
 
-mapper('n', '<leader>dl', function() trouble.toggle() end, '[D]iagnostic [L]ist')
-mapper('n', '<leader>dd', function() trouble.toggle('document_diagnostics') end, '[D]iagnostic [D]ocument List')
-mapper('n', '<leader>dw', function() trouble.toggle('workspace_diagnostics') end, '[D]iagnostic [W]orkspace List')
+mapper('n', '<leader>il', function() trouble.toggle() end, '[I]nspection [L]ist')
+mapper('n', '<leader>id', function() trouble.toggle('document_diagnostics') end, '[I]nspection [D]ocument List')
+mapper('n', '<leader>iw', function() trouble.toggle('workspace_diagnostics') end, '[I]nspection [W]orkspace List')

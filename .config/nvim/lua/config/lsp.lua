@@ -82,7 +82,10 @@ local servers = {
         dialyzerEnabled = false
       }
     }
-  }
+  },
+
+  -- Go
+  gopls = {}
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

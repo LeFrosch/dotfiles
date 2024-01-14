@@ -26,8 +26,10 @@ vim.o.autowriteall = true
 vim.o.wrap = false
 
 vim.o.completeopt = 'menuone,noselect'
-
 vim.o.mouse = ''
+
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 
 -- autosave
 vim.cmd('autocmd! BufLeave * if &modifiable && &buftype ==# "" | :update | endif')

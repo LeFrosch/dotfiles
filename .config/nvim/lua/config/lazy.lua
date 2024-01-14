@@ -45,6 +45,14 @@ local plugins = {
     end
   },
 
+  -- DAP
+  {
+    'mfussenegger/nvim-dap',
+    config = function()
+      require('config.nvim-dap')
+    end
+  },
+
   -- Linter
   {
     'mfussenegger/nvim-lint',

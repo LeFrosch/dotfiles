@@ -72,13 +72,7 @@ local function switch_send_n()
 end
 
 local function switch_send_v()
-  local backup = vim.fn.getreg('a')
-
-  vim.cmd('silent! normal! "ay') --gv
-  local text = vim.fn.getreg('a')
-
-  vim.fn.setreg('a', backup)
-
+  local text = require('config.util').get_visual_selection()
   switch_terminal.send(text)
 end
 
