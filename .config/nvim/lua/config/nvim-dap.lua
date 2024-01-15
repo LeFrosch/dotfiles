@@ -1,4 +1,5 @@
 local dap = require('dap')
+local sel = require('impl.dap-selector')
 
 --- GO ----------------------------------------------------------------------------------
 
@@ -37,9 +38,13 @@ end
 vim.keymap.set('n', '<leader>cb', dap.toggle_breakpoint, opts('[C]ode [B]reakpoint'))
 
 vim.keymap.set('n', '<leader>dc', dap.continue, opts('[D]ebugger [C]ontinue'))
-vim.keymap.set('n', '<leader>dn', dap.step_over, opts('[D]ebugger Step [N]ext'))
+vim.keymap.set('n', '<leader>ds', dap.step_over, opts('[D]ebugger [S]tep Over'))
 vim.keymap.set('n', '<leader>di', dap.step_into, opts('[D]ebugger Step [I]nto'))
 vim.keymap.set('n', '<leader>do', dap.step_out, opts('[D]ebugger Step [O]ut'))
 vim.keymap.set('n', '<leader>dt', dap.run_to_cursor, opts('[D]ebugger continue [T]ill Cursor'))
-vim.keymap.set('n', '<leader>ds', dap.close, opts('[D]ebugger [S]top'))
+vim.keymap.set('n', '<leader>dq', dap.close, opts('[D]ebugger [Q]uit'))
 vim.keymap.set('n', '<leader>dr', open_rpel, opts('[D]ebugger Toggle [R]EPL'))
+
+vim.keymap.set('n', '<leader>dks', sel.select_configuration, opts('[D]ebugger [K]onfiguration [S]elect'))
+vim.keymap.set('n', '<leader>dkr', sel.run_last_configuration, opts('[D]ebugger [K]onfiguration [R]un last'))
+vim.keymap.set('n', '<leader>dke', sel.open_launchjs, opts('[D]ebugger [K]onfiguration [E]dit'))

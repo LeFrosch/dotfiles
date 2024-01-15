@@ -9,6 +9,7 @@ local normal = {
   ['<leader>t'] = { name = '[T]erminal', _ = 'which_key_ignore' },
   ['<leader>i'] = { name = '[I]nspection', _ = 'which_key_ignore' },
   ['<leader>d'] = { name = '[D]ebugger', _ = 'which_key_ignore' },
+  ['<leader>dk'] = { name = '[D]ebugger [K]onfiguration', _ = 'which_key_ignore' },
 }
 
 local visual = {

@@ -64,7 +64,7 @@ local function lazygit()
 end
 
 -- switch terminal implementation
-local switch_terminal = require('config.switchterm')
+local switch_terminal = require('impl.switchterm')
 
 local function switch_send_n()
   local row = unpack(vim.api.nvim_win_get_cursor(0))
