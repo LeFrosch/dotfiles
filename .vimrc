@@ -7,3 +7,5 @@ set noerrorbells
 set incsearch
 
 inoremap jj <Esc>
+
+vnoremap Y "+y

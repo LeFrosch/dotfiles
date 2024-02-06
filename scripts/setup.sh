@@ -5,7 +5,7 @@ sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rele
 sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # install packages
-sudo dnf install dnf-plugins-core keepassxc gnome-tweaks zsh vim nvim
+sudo dnf install dnf-plugins-core keepassxc gnome-tweaks zsh vim nvim stow
 sudo dnf install ffmpeg --allowerasing
 
 # install oh my zsh
@@ -38,5 +38,5 @@ unzip FiraMono.zip -d .fonts
 rm FiraMono.zip
 fc-cache -fv
 
-# disable on laptop - causes freezes
-# sudo rmmod intel_rapl_msr
+# install configs
+# stow .
