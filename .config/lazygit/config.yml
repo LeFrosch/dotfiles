@@ -3,12 +3,12 @@ gui:
   theme:
     lightTheme: false
     activeBorderColor:
-      - "#589ed7"
+      - "#fbf1c7"
       - bold
     inactiveBorderColor:
-      - "#565f89"
+      - "#a89984"
     optionsTextColor:
-      - "#3d59a1"
+      - "#665c54"
     selectedLineBgColor:
       - "#292e42"
       - bold

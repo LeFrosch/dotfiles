@@ -15,11 +15,11 @@ local plugins = {
 
   -- Theme
   {
-    'folke/tokyonight.nvim',
+    'ellisonleao/gruvbox.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      require('config.tokyonight')
+      require('config.gruvbox')
     end
   },
 

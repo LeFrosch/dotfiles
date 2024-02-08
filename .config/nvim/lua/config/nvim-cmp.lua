@@ -16,7 +16,8 @@ cmp.setup {
       winhighlight = 'CursorLine:Visual,Search:None,NormalFloat:NormalPopup',
     },
     documentation = cmp.config.window.bordered {
-      winhighlight = 'CursorLine:Visual,Search:None',
+      border = 'none',
+      winhighlight = 'CursorLine:Visual,Search:None,NormalFloat:NormalPopup',
     },
   },
   completion = {

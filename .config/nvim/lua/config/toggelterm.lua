@@ -1,12 +1,12 @@
-local colors = require('tokyonight.colors').setup()
+local colors = require('gruvbox').palette
 
 require('toggleterm').setup {
   close_on_exit = true,
   shade_terminals = false,
   highlights = {
     FloatBorder = {
-      guibg = colors.bg_float,
-      guifg = colors.border_highlight,
+      guibg = colors.dark0,
+      guifg = colors.light0,
     },
   },
   float_opts = {
