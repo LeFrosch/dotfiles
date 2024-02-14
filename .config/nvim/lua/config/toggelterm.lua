@@ -5,7 +5,6 @@ require('toggleterm').setup {
   shade_terminals = false,
   highlights = {
     FloatBorder = {
-      guibg = colors.dark0,
       guifg = colors.light0,
     },
   },

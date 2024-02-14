@@ -10,8 +10,10 @@ require('gruvbox').setup {
     },
     -- Telescope stuff
     TelescopeBorder = {
-      bg = colors.dark0,
-      fg = colors.light0,
+      link = 'TelescopeNormal',
+    },
+    TelescopePreviewTitle = {
+      link = 'TelescopeNormal',
     },
     TelescopePreviewDirectory = {
       fg = colors.bright_blue,
@@ -21,13 +23,15 @@ require('gruvbox').setup {
       bg = colors.dark1,
       fg = colors.light0,
     },
-    -- Fix issue in lua documentation
-    luaParenError = {},
     -- Completion popup
     NormalPopup = {
       bg = colors.dark1,
       fg = colors.light0,
     },
+    -- Go
+    ['@constructor.go'] = {
+      link = '@function.call.go'
+    }
   }
 }
 
