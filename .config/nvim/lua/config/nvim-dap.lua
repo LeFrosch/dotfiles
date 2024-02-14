@@ -16,9 +16,44 @@ dap.adapters.go = {
 dap.configurations.go = {
   {
     type = 'go',
-    name = 'Debug',
+    name = 'DEFAULT',
     request = 'launch',
     program = '${workspaceFolder}/main.go'
+  }
+}
+
+--- DART  --------------------------------------------------------------------------------
+
+dap.adapters.dart = {
+  type = 'executable',
+  command = 'dart',
+  args = { 'debug_adapter' }
+}
+dap.adapters.flutter = {
+  type = 'executable',
+  command = 'flutter',
+  args = { 'debug_adapter' }
+}
+
+dap.configurations.dart = {
+  {
+    type = 'dart',
+    request = 'launch',
+    name = 'DEFAULT',
+    dartSdkPath = '~/.local/opt/flutter/bin/cache/dart-sdk/bin/dart',
+    program = '${workspaceFolder}/lib/main.dart',
+    cwd = '${workspaceFolder}',
+  }
+}
+dap.configurations.flutter = {
+  {
+    type = 'flutter',
+    request = 'launch',
+    name = 'DEFAULT',
+    dartSdkPath = '~/.local/opt/flutter/bin/cache/dart-sdk/bin/dart',
+    flutterSdkPath = '~/.local/opt/flutter/bin/flutter',
+    program = '${workspaceFolder}/lib/main.dart',
+    cwd = '${workspaceFolder}',
   }
 }
 

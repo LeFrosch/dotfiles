@@ -77,7 +77,7 @@ end
 
 local function create_finder(results, opts)
   local function maker(entry)
-    local name = string.upper(entry.group) .. ": " .. entry.config.name
+    local name = string.format("%8.8s: %s", string.upper(entry.group), entry.config.name)
 
     return t_make_entry.set_default_entry_mt({
       value = entry.config,
