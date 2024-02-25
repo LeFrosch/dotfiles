@@ -32,6 +32,10 @@ function _G.set_terminal_keymaps()
 
   vim.keymap.set('v', '<C-q>', '<cmd>q<cr>', opts)
 
+  -- set navigation to nop
+  vim.keymap.set('n', '<C-o>', '', opts)
+  vim.keymap.set('n', '<C-i>', '', opts)
+
   vim.o.number = false
   vim.o.relativenumber = false
 

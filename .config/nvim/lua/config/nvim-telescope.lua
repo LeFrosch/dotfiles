@@ -71,9 +71,10 @@ end
 
 local function switcher()
   api.buffers {
-    ignore_current_buffer = true,
     only_cwd = true,
+    show_all_buffer = true,
     sort_lastused = true,
+    sort_mur = true,
   }
 end
 

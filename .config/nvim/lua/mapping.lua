@@ -9,6 +9,9 @@ end
 mapper('n', '<Space>', '<Nop>')
 mapper('v', '<Space>', '<Nop>')
 
+-- disable highlighting after search
+mapper('n', '<cr>', ':noh<cr>')
+
 -- disable arrows
 mapper('', '<up>', '<nop>')
 mapper('', '<down>', '<nop>')
@@ -20,6 +23,7 @@ mapper('i', 'jj', '<ESC>')
 mapper('n', '<C-s>', '<cmd>wa<cr>')
 mapper('v', 'Y', '"+y')
 mapper('v', 'q', '<ESC>')
+mapper('n', '<C-q>', ':q <cr>')
 
 -- buffer mappings
 mapper('n', '<leader>bv', '<cmd>bo vs<cr>', '[B]uffer Split [V]ertical')
