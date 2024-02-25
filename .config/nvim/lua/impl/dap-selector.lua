@@ -54,6 +54,20 @@ function M.run_last_configuration()
   end
 end
 
+function M.yank_last_configuration()
+  if last_configuration == nil then return end
+
+  local copy = vim.deepcopy(last_configuration)
+
+  for k, v in pairs(copy) do
+    if type(v) == 'function' then
+      copy[k] = nil
+    end
+  end
+
+  vim.fn.setreg('"', vim.fn.json_encode(copy))
+end
+
 local function load_configurations()
   local ok, err = pcall(require('dap.ext.vscode').load_launchjs, launchjs_path, {})
   if not ok then

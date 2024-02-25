@@ -57,14 +57,39 @@ dap.configurations.flutter = {
   }
 }
 
+--- ZIG -----------------------------------------------------------------------
+
+dap.adapters.zig = {
+  type = 'executable',
+  command = 'gdb',
+  args = { '-i', 'dap' },
+}
+dap.configurations.zig = {
+  {
+    type = 'zig',
+    request = 'launch',
+    name = 'DEFAULT',
+    program = function()
+      return vim.fn.input {
+        prompt = 'Path to executable: ',
+        default = vim.fn.getcwd() .. '/zig-out/bin/',
+        completion = 'file',
+      }
+    end,
+    cwd = '${workspaceFolder}',
+    stopAtBeginningOfMainSubprogram = false,
+  }
+}
+
 vim.fn.sign_define('DapStopped', { text = '>', texthl = '', linehl = '', numhl = '' })
+
 
 local function opts(desc)
   return { desc = 'DAP: ' .. desc, noremap = true }
 end
 
 local function open_rpel()
-  local _, window = dap.repl.open()
+  local _, window = dap.repl.open({}, 'vertical botright split')
 
   vim.api.nvim_set_current_win(window)
   vim.cmd('startinsert!')
@@ -82,4 +107,5 @@ vim.keymap.set('n', '<leader>dr', open_rpel, opts('[D]ebugger Toggle [R]EPL'))
 
 vim.keymap.set('n', '<leader>dks', sel.select_configuration, opts('[D]ebugger [K]onfiguration [S]elect'))
 vim.keymap.set('n', '<leader>dkr', sel.run_last_configuration, opts('[D]ebugger [K]onfiguration [R]un last'))
+vim.keymap.set('n', '<leader>dky', sel.yank_last_configuration, opts('[D]ebugger [K]onfiguration [Y]ank last'))
 vim.keymap.set('n', '<leader>dke', sel.open_launchjs, opts('[D]ebugger [K]onfiguration [E]dit'))

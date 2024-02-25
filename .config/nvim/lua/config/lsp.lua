@@ -5,7 +5,7 @@ require('mason').setup {
 }
 
 require('mason-lspconfig').setup {
-  automatic_installation = true,
+  automatic_installation = false,
 }
 
 require('neodev').setup()
@@ -85,7 +85,10 @@ local servers = {
   },
 
   -- Go
-  gopls = {}
+  gopls = {},
+
+  -- Zig
+  zls = {}
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
