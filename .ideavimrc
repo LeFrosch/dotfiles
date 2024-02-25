@@ -15,13 +15,13 @@ let mapleader = " "
 map <leader>sa :action GotoAction<CR>
 map <leader>sc :action GotoClass<CR>
 map <leader>sf :action GotoFile<CR>
-map <leader>sw :action FindInPath<CR>
+map <leader>sg :action FindInPath<CR>
 
 nmap gI :action GotoImplementation<CR>
 nmap gr :action FindUsages<CR>
 nmap gs :action GotoSuperMethod<CR>
 
-nmap <leader>cf :action ReformatCode<CR>
+map <leader>cf :action ReformatCode<CR>
 nmap <leader>ca :action ShowIntentionActions<CR>
 nmap <leader>cb :action ToggleLineBreakpoint<CR>
 nmap <leader>cr :action CompileFile<CR>
