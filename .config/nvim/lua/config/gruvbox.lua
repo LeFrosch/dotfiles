@@ -3,31 +3,50 @@ local colors = require('gruvbox').palette
 require('gruvbox').setup {
   transparent_mode = true,
   overrides = {
-    -- Terminal, Mason, etc.
-    FloatBorder = {
-      bg = colors.dark0,
+    -- Dialog
+    NormalDialog = {
       fg = colors.light0,
     },
-    -- Telescope stuff
-    TelescopeBorder = {
-      link = 'TelescopeNormal',
+    FloatBorder = {
+      fg = colors.light2,
     },
-    TelescopePreviewTitle = {
-      link = 'TelescopeNormal',
+
+    -- Mason
+    MasonNormal = {
+      link = 'NormalDialog',
+    },
+
+    -- Telescope
+    TelescopeNormal = {
+      link = 'NormalDialog',
+    },
+    TelescopeBorder = {
+      link = 'FloatBorder',
+    },
+    TelescopeResultsBorder = {
+      link = 'FloatBorder',
+    },
+    TelescopePromptBorder = {
+      link = 'FloatBorder',
+    },
+    TelescopePreviewBorder = {
+      link = 'FloatBorder',
     },
     TelescopePreviewDirectory = {
       fg = colors.bright_blue,
     },
-    -- Hover documentation 
-    NormalFloat = {
-      bg = colors.dark1,
-      fg = colors.light0,
-    },
-    -- Completion popup
+
+    -- Popups
     NormalPopup = {
       bg = colors.dark1,
       fg = colors.light0,
     },
+
+    -- Hover Documentation
+    NormalFloat = {
+      link = 'NormalPopup',
+    },
+
     -- Go
     ['@constructor.go'] = {
       link = '@function.call.go'
