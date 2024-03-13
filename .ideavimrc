@@ -17,6 +17,9 @@ map <leader>sc :action GotoClass<CR>
 map <leader>sf :action GotoFile<CR>
 map <leader>sg :action FindInPath<CR>
 
+nmap <leader>bv :action SplitVertically<CR>
+nmap <leader>bh :action SplitHorizontally<CR>
+
 nmap gI :action GotoImplementation<CR>
 nmap gr :action FindUsages<CR>
 nmap gs :action GotoSuperMethod<CR>
