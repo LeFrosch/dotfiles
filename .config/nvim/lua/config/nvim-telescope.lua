@@ -25,6 +25,7 @@ require('telescope').setup {
       hijack_netrw = true,
       display_stat = { date = true, size = true, mode = false },
       dir_icon = ' ',
+      respect_gitignore = false,
       mappings = {
         ['n'] = {
           ['l'] = actions.select_default,
