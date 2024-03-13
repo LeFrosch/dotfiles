@@ -15,7 +15,6 @@ require('telescope').setup {
         ['<C-j>'] = actions.move_selection_next,
         ['<C-k>'] = actions.move_selection_previous,
         ['<C-q>'] = actions.close,
-        ['l'] = actions.select_default,
         ['q'] = actions.close,
       }
     }
@@ -28,6 +27,7 @@ require('telescope').setup {
       dir_icon = ' ',
       mappings = {
         ['n'] = {
+          ['l'] = actions.select_default,
           ['h'] = fb_actions.goto_parent_dir,
           ['H'] = fb_actions.toggle_hidden,
           ['a'] = fb_actions.select_all,
@@ -90,7 +90,8 @@ keymap_search('<Leader>ss', api.lsp_workspace_symbols, '[S]earch [S]ymbols')
 keymap_search('<leader>ds', api.diagnostics, '[D]iagnostics [S]earch')
 
 vim.keymap.set('n', '<leader>fe', '<cmd>Telescope file_browser<cr>', { desc = '[F]ile [E]xplorer' })
-vim.keymap.set('n', '<leader>fl', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', { desc = '[F]ile [L]ocal Browser' })
+vim.keymap.set('n', '<leader>fl', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
+  { desc = '[F]ile [L]ocal Browser' })
 
 vim.keymap.set('n', '<leader>gs', api.git_status, { desc = '[G]it [S]tatus' })
 vim.keymap.set('n', '<leader>gc', api.git_commits, { desc = '[G]it [C]ommits' })
