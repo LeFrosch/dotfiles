@@ -23,6 +23,7 @@ nmap <leader>bv :action SplitVertically<CR>
 nmap <leader>bh :action SplitHorizontally<CR>
 
 " Navigation
+nmap gd :action GotoDeclaration<CR>
 nmap gI :action GotoImplementation<CR>
 nmap gr :action FindUsages<CR>
 nmap gs :action GotoSuperMethod<CR>
@@ -37,6 +38,10 @@ nmap <leader>cr :action CompileFile<CR>
 imap <C-y> :action EditorChooseLookupItem<CR>
 imap <C-n> :action EditorDown<CR>
 imap <C-p> :action EditorUp<CR>
+
+" finde files in project view
+nmap <leader>fl :action SelectInProjectView<CR>
+nmap <leader>fe :action ActivateProjectToolWindow<CR>
 
 " Utils
 nmap <leader><leader> :action Switcher<CR>
