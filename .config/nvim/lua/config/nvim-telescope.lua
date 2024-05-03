@@ -75,7 +75,12 @@ local function switcher()
     only_cwd = true,
     show_all_buffer = true,
     sort_lastused = true,
-    sort_mur = true,
+  }
+end
+
+local function class_search()
+  api.lsp_dynamic_workspace_symbols {
+    symbols = 'class',
   }
 end
 
@@ -86,13 +91,13 @@ keymap_search('<leader>sf', api.find_files, '[S]earch [F]iles')
 keymap_search('<leader>sh', api.help_tags, '[S]earch [H]elp')
 keymap_search('<leader>sg', api.live_grep, '[S]earch by [G]rep')
 keymap_search('<leader>sr', api.resume, '[S]earch [R]esume')
-keymap_search('<Leader>ss', api.lsp_workspace_symbols, '[S]earch [S]ymbols')
+keymap_search('<Leader>ss', api.lsp_dynamic_workspace_symbols, '[S]earch [S]ymbols')
+keymap_search('<Leader>sc', class_search, '[S]earch [C]lass')
 
 keymap_search('<leader>ds', api.diagnostics, '[D]iagnostics [S]earch')
 
 vim.keymap.set('n', '<leader>fe', '<cmd>Telescope file_browser<cr>', { desc = '[F]ile [E]xplorer' })
-vim.keymap.set('n', '<leader>fl', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
-  { desc = '[F]ile [L]ocal Browser' })
+vim.keymap.set('n', '<leader>fl', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', { desc = '[F]ile [L]ocal Browser' })
 
 vim.keymap.set('n', '<leader>gs', api.git_status, { desc = '[G]it [S]tatus' })
 vim.keymap.set('n', '<leader>gc', api.git_commits, { desc = '[G]it [C]ommits' })

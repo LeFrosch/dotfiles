@@ -63,7 +63,7 @@ local servers = {
   dartls = {
     settings = {
       dart = {
-        lineLength = 120
+        lineLength = 100
       }
     },
     on_attach = on_attach_dart,
@@ -88,7 +88,13 @@ local servers = {
   gopls = {},
 
   -- Zig
-  zls = {}
+  zls = {},
+
+  -- Python
+  pylsp = {},
+
+  -- Haskell,
+  hls = {},
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
