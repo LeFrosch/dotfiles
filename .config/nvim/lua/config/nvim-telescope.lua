@@ -1,21 +1,22 @@
 local api = require('telescope.builtin')
-local actions = require('telescope.actions')
+local te_actions = require('telescope.actions')
 local fb_actions = require('telescope._extensions.file_browser.actions')
+local my_actions = require('impl.telescope-actions')
 
 require('telescope').setup {
   defaults = {
     initial_mode = 'normal',
     mappings = {
       i = {
-        ['<C-j>'] = actions.move_selection_next,
-        ['<C-k>'] = actions.move_selection_previous,
-        ['<C-q>'] = actions.close,
+        ['<C-j>'] = te_actions.move_selection_next,
+        ['<C-k>'] = te_actions.move_selection_previous,
+        ['<C-q>'] = te_actions.close,
       },
       n = {
-        ['<C-j>'] = actions.move_selection_next,
-        ['<C-k>'] = actions.move_selection_previous,
-        ['<C-q>'] = actions.close,
-        ['q'] = actions.close,
+        ['<C-j>'] = te_actions.move_selection_next,
+        ['<C-k>'] = te_actions.move_selection_previous,
+        ['<C-q>'] = te_actions.close,
+        ['q'] = te_actions.close,
       }
     }
   },
@@ -28,11 +29,13 @@ require('telescope').setup {
       respect_gitignore = false,
       mappings = {
         ['n'] = {
-          ['l'] = actions.select_default,
+          ['l'] = te_actions.select_default,
           ['h'] = fb_actions.goto_parent_dir,
           ['H'] = fb_actions.toggle_hidden,
           ['a'] = fb_actions.select_all,
-          ['s'] = actions.toggle_selection,
+          ['s'] = te_actions.toggle_selection,
+          ['p'] = my_actions.yank_path_relative,
+          ['P'] = my_actions.yank_path_absolute,
         }
       },
     }
@@ -72,9 +75,8 @@ end
 
 local function switcher()
   api.buffers {
-    only_cwd = true,
-    show_all_buffer = true,
-    sort_lastused = true,
+    sort_mru = true,
+    ignore_current_buffer = true,
   }
 end
 
@@ -97,7 +99,8 @@ keymap_search('<Leader>sc', class_search, '[S]earch [C]lass')
 keymap_search('<leader>ds', api.diagnostics, '[D]iagnostics [S]earch')
 
 vim.keymap.set('n', '<leader>fe', '<cmd>Telescope file_browser<cr>', { desc = '[F]ile [E]xplorer' })
-vim.keymap.set('n', '<leader>fl', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', { desc = '[F]ile [L]ocal Browser' })
+vim.keymap.set('n', '<leader>fl', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
+  { desc = '[F]ile [L]ocal Browser' })
 
 vim.keymap.set('n', '<leader>gs', api.git_status, { desc = '[G]it [S]tatus' })
 vim.keymap.set('n', '<leader>gc', api.git_commits, { desc = '[G]it [C]ommits' })

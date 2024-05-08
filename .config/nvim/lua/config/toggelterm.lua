@@ -41,10 +41,10 @@ function _G.set_terminal_keymaps()
 
   -- keymaps only for normal terminals
   if toggle_number() == nil then
-    vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-    vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-    vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-    vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+    vim.keymap.set('t', '<C-w>h', [[<Cmd>wincmd h<CR>]], opts)
+    vim.keymap.set('t', '<C-w>j', [[<Cmd>wincmd j<CR>]], opts)
+    vim.keymap.set('t', '<C-w>k', [[<Cmd>wincmd k<CR>]], opts)
+    vim.keymap.set('t', '<C-w>l', [[<Cmd>wincmd l<CR>]], opts)
   end
 end
 
@@ -84,6 +84,7 @@ local function opts(desc)
 end
 
 vim.keymap.set('n', '<leader>tg', lazygit, opts('[T]erminal [G]it'))
+vim.keymap.set('n', '<leader>tn', '<cmd>te<cr>', opts('[T]erminal [N]we'))
 vim.keymap.set('n', '<leader>tv', '<cmd>bo vs | te<cr>', opts('[T]erminal [V]ertical'))
 vim.keymap.set('n', '<leader>th', '<cmd>bo sp | te<cr>', opts('[T]erminal [H]orizontal'))
 
