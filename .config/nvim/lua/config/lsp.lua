@@ -26,7 +26,6 @@ local function on_attach(_, bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts('[R]e[n]ame'))
 
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts('[C]ode [A]ction'))
-  vim.keymap.set('n', '<leader>cf', vim.lsp.buf.format, opts('[C]ode [F]ormat'))
 
   vim.keymap.set('n', 'gd', search(telescope.lsp_definitions), opts('[G]oto [D]efinition'))
   vim.keymap.set('n', 'gr', search(telescope.lsp_references), opts('[G]oto [R]eferences'))

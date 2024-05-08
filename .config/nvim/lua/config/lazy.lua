@@ -64,6 +64,14 @@ local plugins = {
     end
   },
 
+  -- Formatter
+  {
+    'stevearc/conform.nvim',
+    config = function ()
+      require('config.conform')
+    end
+  },
+
   -- Autocompletion
   {
     'hrsh7th/nvim-cmp',
