@@ -4,6 +4,7 @@ conform.setup {
   formatters_by_ft = {
     json = { 'prettier' },
     yaml = { 'prettier' },
+    bzl = { 'buildifier' }
   }
 }
 
