@@ -16,3 +16,6 @@ export EDITOR="vim"
 # how to export to path
 # path+=("/home/daniel/.local/bin")
 # export PATH
+
+# enable zoxide
+# eval "$(zoxide init zsh --cmd cd)"
