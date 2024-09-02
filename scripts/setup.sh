@@ -5,7 +5,7 @@ sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rele
 sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # install packages
-sudo dnf install dnf-plugins-core keepassxc gnome-tweaks zsh vim nvim stow
+sudo dnf install dnf-plugins-core keepassxc gnome-tweaks zsh vim neovim stow
 sudo dnf install ffmpeg --allowerasing
 
 # install oh my zsh
@@ -13,17 +13,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # install zsh-vi-mode plugin
 git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
-
-# generate new ssh key
-ssh-keygen -t ed25519
-cat .ssh/id_ed25519.pub
-
-# fetch dot files
-git init
-git remote add origin https://github.com/LeFrosch/dotfiles.git
-git fetch --all
-git reset --hard origin/main
-rm -rf .git
 
 # install docker
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
@@ -39,4 +28,4 @@ rm FiraMono.zip
 fc-cache -fv
 
 # install configs
-# stow .
+stow .
