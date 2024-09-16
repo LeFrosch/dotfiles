@@ -51,6 +51,10 @@ imap <C-p> :action EditorUp<CR>
 " find files in project view
 nmap <leader>fl :action SelectInProjectView<CR>
 nmap <leader>fe :action ActivateProjectToolWindow<CR>
+nmap <leader>fs :action ActivateStructureToolWindow<CR>
+
+" yank
+nmap <leader>yr :action CopyReference<CR> :let @" = @+ <CR>
 
 " utils
 nmap <leader><leader> :action Switcher<CR>
