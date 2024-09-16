@@ -14,6 +14,10 @@ inoremap jj <Esc>
 
 let mapleader = " "
 
+" function keys
+map <f9>  :action Debug<CR>
+map <f10> :action Run<CR>
+
 " search
 map <leader>sa :action GotoAction<CR>
 map <leader>sc :action GotoClass<CR>
@@ -30,11 +34,14 @@ nmap gI :action GotoImplementation<CR>
 nmap gr :action FindUsages<CR>
 nmap gs :action GotoSuperMethod<CR>
 
+nmap ]i :action GotoNextError<CR>
+nmap [i :action GotoPreviousError<CR>
+
 " code actions
 map  <leader>cf :action ReformatCode<CR>
 map  <leader>ca :action ShowIntentionActions<CR>
 nmap <leader>cb :action ToggleLineBreakpoint<CR>
-nmap <leader>cr :action :action Run<CR>
+nmap <leader>cr :action Run<CR>
 
 " completion
 imap <C-y> :action EditorChooseLookupItem<CR>
