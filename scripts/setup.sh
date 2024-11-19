@@ -27,5 +27,9 @@ unzip FiraMono.zip -d .fonts
 rm FiraMono.zip
 fc-cache -fv
 
+# git config
+git config --global push.autoSetupRemote 1
+git config --global rebase.autosquash 1
+
 # install configs
 stow .
