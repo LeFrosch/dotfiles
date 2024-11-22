@@ -28,6 +28,8 @@ map <leader>sg :action FindInPath<CR>
 nmap <leader>bv :action SplitVertically<CR>
 nmap <leader>bh :action SplitHorizontally<CR>
 
+nmap <c-w>r :action MoveEditorToOppositeTabGroup<CR>
+
 " navigation
 nmap gd :action GotoDeclaration<CR>
 nmap gI :action GotoImplementation<CR>
