@@ -8,6 +8,10 @@ sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfre
 sudo dnf install dnf-plugins-core keepassxc gnome-tweaks zsh vim neovim stow
 sudo dnf install ffmpeg --allowerasing
 
+# install lazygit
+sudo dnf copr enable atim/lazygit
+sudo dnf install lazygit
+
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
 
@@ -21,9 +25,15 @@ sudo systemctl enable docker --now
 
 sudo usermod -aG docker $USER
 
+# generate new ssh key
+ssh-keygen -t ed25519
+
+# load gnome configs
+dconf load / < scripts/gnome.ini
+
 # install font
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraMono.zip 
-unzip FiraMono.zip -d .fonts
+unzip FiraMono.zip -d ~/.fonts
 rm FiraMono.zip
 fc-cache -fv
 
@@ -33,3 +43,4 @@ git config --global rebase.autosquash 1
 
 # install configs
 stow .
+
