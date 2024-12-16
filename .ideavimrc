@@ -27,8 +27,10 @@ map <leader>sg :action FindInPath<CR>
 " buffer
 nmap <leader>bv :action SplitVertically<CR>
 nmap <leader>bh :action SplitHorizontally<CR>
+nmap <leader>tf :action ActivateTerminalToolWindow<CR>
 
 nmap <c-w>r :action MoveEditorToOppositeTabGroup<CR>
+nmap <c-q>  :action CloseAllEditors<CR>
 
 " navigation
 nmap gd :action GotoDeclaration<CR>
@@ -61,4 +63,8 @@ nmap <leader>yr :action CopyReference<CR> :let @" = @+ <CR>
 " utils
 nmap <leader><leader> :action Switcher<CR>
 nmap <leader>rn       :action RenameElement<CR>
+
+nmap P :action EditorPaste<CR>
+vmap P :action EditorPaste<CR>
+
 vmap Y "+y
