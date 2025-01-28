@@ -27,10 +27,14 @@ map <leader>sg :action FindInPath<CR>
 " buffer
 nmap <leader>bv :action SplitVertically<CR>
 nmap <leader>bh :action SplitHorizontally<CR>
-nmap <leader>tf :action ActivateTerminalToolWindow<CR>
-
 nmap <c-w>r :action MoveEditorToOppositeTabGroup<CR>
-nmap <c-q>  :action CloseAllEditors<CR>
+nmap <c-w>q :action Unsplit<CR>
+
+" tool windows
+nmap <leader>tf :action ActivateTerminalToolWindow<CR>
+nmap <leader>tb :action JumpToLastWindow<CR>
+nmap <leader>tg :action CheckinProject<CR>
+nmap <leader>ts :action ActivateBuildToolWindow<CR>
 
 " navigation
 nmap gd :action GotoDeclaration<CR>
@@ -57,6 +61,11 @@ nmap <leader>fl :action SelectInProjectView<CR>
 nmap <leader>fe :action ActivateProjectToolWindow<CR>
 nmap <leader>fs :action ActivateStructureToolWindow<CR>
 
+" bazel
+nmap <leader>bc :action Blaze.EditProjectView<CR>
+nmap <leader>bb :action Blaze.OpenCorrespondingBuildFile<CR>
+nmap <leader>bs :action Blaze.FullSyncProject<CR>
+
 " yank
 nmap <leader>yr :action CopyReference<CR> :let @" = @+ <CR>
 
@@ -64,7 +73,7 @@ nmap <leader>yr :action CopyReference<CR> :let @" = @+ <CR>
 nmap <leader><leader> :action Switcher<CR>
 nmap <leader>rn       :action RenameElement<CR>
 
-nmap P :action EditorPaste<CR>
+nmap P i<C-v><ESC>
 vmap P :action EditorPaste<CR>
 
 vmap Y "+y
