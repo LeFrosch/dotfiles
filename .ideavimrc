@@ -24,9 +24,12 @@ map <leader>sc :action GotoClass<CR>
 map <leader>sf :action GotoFile<CR>
 map <leader>sg :action FindInPath<CR>
 
+nmap <leader>ss :action FileStructurePopup<CR>
+
 " buffer
 nmap <leader>bv :action SplitVertically<CR>
 nmap <leader>bh :action SplitHorizontally<CR>
+nmap <leader>bf :action EditSourceInNewWindow<CR>
 nmap <c-w>r :action MoveEditorToOppositeTabGroup<CR>
 nmap <c-w>q :action Unsplit<CR>
 
@@ -67,13 +70,10 @@ nmap <leader>bb :action Blaze.OpenCorrespondingBuildFile<CR>
 nmap <leader>bs :action Blaze.FullSyncProject<CR>
 
 " yank
+map P "+p 
+vmap Y "+y
 nmap <leader>yr :action CopyReference<CR> :let @" = @+ <CR>
 
 " utils
 nmap <leader><leader> :action Switcher<CR>
 nmap <leader>rn       :action RenameElement<CR>
-
-nmap P i<C-v><ESC>
-vmap P :action EditorPaste<CR>
-
-vmap Y "+y
