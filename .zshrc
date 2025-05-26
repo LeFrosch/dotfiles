@@ -3,6 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="cat"
 
 # enable zsh plugins
+plugins=(git zsh-vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # configure vim
