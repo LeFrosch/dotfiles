@@ -21,3 +21,6 @@ export PATH
 
 # enable zoxide
 eval "$(zoxide init zsh --cmd cd)"
+
+# enable fit completion
+compdef fit=git

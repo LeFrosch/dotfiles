@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case "$1" in
+  rebase|checkout|push|switch)
+    git $@ -f
+    ;;
+  hard)
+	git $@ --hard
+	;;
+  *)
+    git $@
+    ;;
+esac
