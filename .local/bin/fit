@@ -1,12 +1,35 @@
 #!/bin/sh
 
+upset() {
+  # gets the current upstream branch (e.g., "origin/main")
+  UPSTREAM=$(git rev-parse --abbrev-ref @{u} 2>/dev/null)
+
+  # check if the upstream branch is configured
+  if [ -z "$UPSTREAM" ]; then
+    echo "no upstream branch is configured for the current branch" >&2
+    return 1
+  fi
+
+  REMOTE=$(echo "$UPSTREAM" | cut -d'/' -f1)
+  BRANCH=$(echo "$UPSTREAM" | cut -d'/' -f2-)
+
+  git fetch "$REMOTE" "$BRANCH"
+  git reset --hard FETCH_HEAD
+}
+
 case "$1" in
-  rebase|checkout|push|switch)
+  rebase|checkout|switch)
     git $@ -f
     ;;
-  hard)
-	git $@ --hard
-	;;
+  reset)
+    git $@ --hard
+    ;;
+  clean)
+    git clean -dfx
+    ;;
+  upset)
+    upset
+    ;;
   *)
     git $@
     ;;
