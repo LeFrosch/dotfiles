@@ -22,6 +22,7 @@ mapper('', '<right>', '<nop>')
 mapper('i', 'jj', '<ESC>')
 mapper('n', '<C-s>', '<cmd>wa<cr>')
 mapper('v', 'Y', '"+y')
+mapper('n', 'P', '"+p')
 mapper('v', 'q', '<ESC>')
 mapper('n', '<C-q>', ':q <cr>')
 
