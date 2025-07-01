@@ -21,6 +21,9 @@ case "$1" in
   rebase|checkout|switch)
     git $@ -f
     ;;
+  push)
+    git $@ --force-with-lease
+    ;;
   reset)
     git $@ --hard
     ;;
