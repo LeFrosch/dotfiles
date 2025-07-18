@@ -1,20 +1,59 @@
-local normal = {
-  ['g'] = { name = '[G]oto', _ = 'which_key_ignore' },
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]efactor', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>f'] = { name = '[F]ile Explorer', _ = 'which_key_ignore' },
-  ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = '[T]erminal', _ = 'which_key_ignore' },
-  ['<leader>i'] = { name = '[I]nspection', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ebugger', _ = 'which_key_ignore' },
-  ['<leader>dk'] = { name = '[D]ebugger [K]onfiguration', _ = 'which_key_ignore' },
+require('which-key').setup {
+  icons = {
+    mappings = false,
+    rules = false,
+    breadcrumb = '>>'
+    separator = '>',
+    ellipsis = '...',
+    keys = {
+      Up = '<up>',
+      Down = '<down>',
+      Left = '<left>',
+      Right = '<right>',
+      C = '<c>',
+      M = '<m>',
+      D = '<d>',
+      S = '<s>',
+      CR = '<cr>',
+      Esc = '<esc>',
+      ScrollWheelDown = '<scrollwheeldown>',
+      ScrollWheelUp = '<scrollwheelup>',
+      NL = '<nl>',
+      BS = '<bs>',
+      Space = '<space>',
+      Tab = '<tab>',
+      F1 = '<f1>',
+      F2 = '<f2>',
+      F3 = '<f3>',
+      F4 = '<f4>',
+      F5 = '<f5>',
+      F6 = '<f6>',
+      F7 = '<f7>',
+      F8 = '<f8>',
+      F9 = '<f9>',
+      F10 = '<f10>',
+      F11 = '<f11>',
+      F12 = '<f12>',
+    },
+  }
 }
 
-local visual = {
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+require('which-key').add {
+  mode = { 'n' },
+  { '<leader>b',  group = '[B]uffer' },
+  { '<leader>c',  group = '[C]ode' },
+  { '<leader>d',  group = '[D]ebugger' },
+  { '<leader>dk', group = '[D]ebugger [K]onfiguration' },
+  { '<leader>f',  group = '[F]ile Explorer' },
+  { '<leader>g',  group = '[G]it' },
+  { '<leader>i',  group = '[I]nspection' },
+  { '<leader>r',  group = '[R]efactor' },
+  { '<leader>s',  group = '[S]earch' },
+  { '<leader>t',  group = '[T]erminal' },
+  { 'g',          group = '[G]oto' },
 }
 
-require('which-key').register(normal, { mode = 'n' })
-require('which-key').register(visual, { mode = 'v' })
+require('which-key').add {
+  mode = { 'n' },
+  { '<leader>s', group = '[S]earch' },
+}
