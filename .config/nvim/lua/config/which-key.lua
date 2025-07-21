@@ -2,7 +2,7 @@ require('which-key').setup {
   icons = {
     mappings = false,
     rules = false,
-    breadcrumb = '>>'
+    breadcrumb = '>>',
     separator = '>',
     ellipsis = '...',
     keys = {
