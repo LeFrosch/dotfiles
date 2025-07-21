@@ -17,6 +17,13 @@ upset() {
   git reset --hard FETCH_HEAD
 }
 
+feature() {
+  BRANCH=pull/$(git rev-parse HEAD)
+
+  git branch $BRANCH
+  git push origin $BRANCH:$BRANCH
+}
+
 case "$1" in
   rebase|checkout|switch)
     git $@ -f
@@ -32,6 +39,9 @@ case "$1" in
     ;;
   upset)
     upset
+    ;;
+  feature)
+    feature
     ;;
   *)
     git $@
