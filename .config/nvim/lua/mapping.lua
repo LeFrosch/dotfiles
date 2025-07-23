@@ -21,10 +21,11 @@ mapper('', '<right>', '<nop>')
 -- utils mappings
 mapper('i', 'jj', '<ESC>')
 mapper('n', '<C-s>', '<cmd>wa<cr>')
+
+-- copy and paste mappings
 mapper('v', 'Y', '"+y')
 mapper('n', 'P', '"+p')
-mapper('v', 'q', '<ESC>')
-mapper('n', '<C-q>', ':q <cr>')
+mapper('v', 'P', '"+p')
 
 -- buffer mappings
 mapper('n', '<leader>bv', '<cmd>bo vs<cr>', '[B]uffer Split [V]ertical')
