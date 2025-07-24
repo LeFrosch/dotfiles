@@ -25,11 +25,8 @@ feature() {
 }
 
 case "$1" in
-  rebase|checkout|switch)
+  rebase|checkout|switch|push)
     git $@ -f
-    ;;
-  push)
-    git $@ --force-with-lease
     ;;
   reset)
     git $@ --hard
