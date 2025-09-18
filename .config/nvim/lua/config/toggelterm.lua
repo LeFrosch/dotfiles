@@ -1,4 +1,5 @@
 local colors = require('gruvbox').palette
+local terminal = require('toggleterm.terminal').Terminal
 
 require('toggleterm').setup {
   close_on_exit = true,
@@ -52,7 +53,6 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- layzgit terminal
-local terminal = require('toggleterm.terminal').Terminal
 local lazygit_terminal = terminal:new {
   cmd = 'lazygit',
   hidden = true,
@@ -64,6 +64,17 @@ local lazygit_terminal = terminal:new {
 
 local function lazygit()
   lazygit_terminal:toggle()
+end
+
+-- gemini terminal
+local gemini_terminal = terminal:new {
+  cmd = 'gemini',
+  hidden = true,
+  direction = 'float'
+}
+
+local function gemini()
+  gemini_terminal:toggle()
 end
 
 -- switch terminal implementation
@@ -84,6 +95,7 @@ local function opts(desc)
 end
 
 vim.keymap.set('n', '<leader>tg', lazygit, opts('[T]erminal [G]it'))
+vim.keymap.set('n', '<leader>ta', gemini, opts('[T]erminal [A]I'))
 vim.keymap.set('n', '<leader>tn', '<cmd>te<cr>', opts('[T]erminal [N]we'))
 vim.keymap.set('n', '<leader>tv', '<cmd>bo vs | te<cr>', opts('[T]erminal [V]ertical'))
 vim.keymap.set('n', '<leader>th', '<cmd>bo sp | te<cr>', opts('[T]erminal [H]orizontal'))
