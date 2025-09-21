@@ -50,6 +50,7 @@ require('which-key').add {
   { '<leader>r',  group = '[R]efactor' },
   { '<leader>s',  group = '[S]earch' },
   { '<leader>t',  group = '[T]erminal' },
+  { '<leader>h',  group = '[H]unk' },
   { 'g',          group = '[G]oto' },
 }
 

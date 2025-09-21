@@ -134,7 +134,14 @@ local plugins = {
     config = function()
       require('config.toggelterm')
     end
-  }
+  },
+
+  -- GitGutter
+  {
+    'airblade/vim-gitgutter',
+    config = function()
+    end
+  },
 }
 
 local opts = {}
