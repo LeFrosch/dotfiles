@@ -26,6 +26,8 @@ map <leader>sg :action FindInPath<CR>
 
 nmap <leader>ss :action FileStructurePopup<CR>
 
+vmap / "yy :execute '/' . @y<CR>
+
 " buffer
 nmap <leader>bv :action SplitVertically<CR>
 nmap <leader>bh :action SplitHorizontally<CR>
