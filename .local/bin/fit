@@ -24,6 +24,13 @@ feature() {
   git push origin $BRANCH:$BRANCH
 }
 
+temp() {
+  # generate a random hash
+  HASH=$(date | sha256sum | awk '{print substr($1, 1, 40)}')
+
+  git checkout -b "temp/$HASH"
+}
+
 case "$1" in
   rebase|checkout|switch|push)
     git $@ -f
@@ -39,6 +46,9 @@ case "$1" in
     ;;
   feature)
     feature
+    ;;
+  temp)
+    temp
     ;;
   *)
     git $@
