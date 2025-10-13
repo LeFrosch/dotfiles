@@ -1,12 +1,12 @@
 #!/bin/sh
 
 upset() {
-  # gets the current upstream branch (e.g., "origin/main")
-  UPSTREAM=$(git rev-parse --abbrev-ref @{u} 2>/dev/null)
+  # Use the provided upstream if available, otherwise get the current one.
+  UPSTREAM=${1:-$(git rev-parse --abbrev-ref @{u} 2>/dev/null)}
 
   # check if the upstream branch is configured
   if [ -z "$UPSTREAM" ]; then
-    echo "no upstream branch is configured for the current branch" >&2
+    echo "no upstream branch is configured for the current branch and none was provided" >&2
     return 1
   fi
 
@@ -42,7 +42,7 @@ case "$1" in
     git clean -dfx
     ;;
   upset)
-    upset
+    upset "$2"
     ;;
   feature)
     feature
