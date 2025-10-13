@@ -1,0 +1,11 @@
+[user]
+	name = Daniel Brauner
+	email = daniel.brauner@jetbrains.com
+[rebase]
+	autosquash = 1
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = 1
