@@ -79,6 +79,13 @@ map P "+p
 vmap Y "+y
 nmap <leader>yr :action CopyReference<CR> :let @" = @+ <CR>
 
+" hunks
+nmap <space>hu :action Vcs.RollbackChangedLines<CR>
+nmap <space>hp :action VcsShowCurrentChangeMarker<CR>
+nmap <space>hd :action Vcs.ShowDiffChangedLines<CR>
+nmap ]h :action VcsShowNextChangeMarker<CR>
+nmap [h :action VcsShowPrevChangeMarker<CR>
+
 " utils
 nmap <leader><leader> :action Switcher<CR>
 nmap <leader>rn       :action RenameElement<CR>
