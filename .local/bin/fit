@@ -1,8 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 upset() {
   # Use the provided upstream if available, otherwise get the current one.
-  UPSTREAM=${1:-$(git rev-parse --abbrev-ref @{u} 2>/dev/null)}
+  if [ -n "$1" ]; then
+    UPSTREAM="$1"
+  else
+    UPSTREAM=$(git rev-parse --abbrev-ref @{u} 2>/dev/null)
+  fi
 
   # check if the upstream branch is configured
   if [ -z "$UPSTREAM" ]; then
