@@ -17,7 +17,7 @@ sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rele
 sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # install packages
-sudo dnf install dnf-plugins-core zsh neovim stow git
+sudo dnf install dnf-plugins-core zsh neovim stow git zoxide
 
 # install lazygit
 sudo dnf copr enable atim/lazygit
@@ -27,7 +27,7 @@ sudo dnf install lazygit
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
 
 # install zsh-vi-mode plugin
-git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
+git clone https://github.com/jeffreytse/zsh-vi-mode ~/.oh-my-zsh/custom/plugins/zsh-vi-mode
 
 # install docker
 if prompt "Do you want to install Docker?"; then
