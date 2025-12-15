@@ -10,14 +10,10 @@ require('telescope').setup {
       i = {
         ['<C-j>'] = te_actions.move_selection_next,
         ['<C-k>'] = te_actions.move_selection_previous,
-        ['<C-q>'] = te_actions.close,
-        ['<C-f>'] = te_actions.send_to_qflist,
       },
       n = {
         ['<C-j>'] = te_actions.move_selection_next,
         ['<C-k>'] = te_actions.move_selection_previous,
-        ['<C-f>'] = te_actions.send_to_qflist,
-        ['<C-q>'] = te_actions.close,
         ['q'] = te_actions.close,
       }
     }
