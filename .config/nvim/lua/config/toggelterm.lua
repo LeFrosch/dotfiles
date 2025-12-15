@@ -68,7 +68,7 @@ end
 
 -- gemini terminal
 local gemini_terminal = terminal:new {
-  cmd = 'gemini',
+  cmd = 'claude',
   hidden = true,
   direction = 'float'
 }
