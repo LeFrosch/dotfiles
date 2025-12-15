@@ -89,6 +89,9 @@ local servers = {
 
   -- Starlark
   starpls = {},
+
+  -- JetBrains LSP
+  kotlin_lsp = {},
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
