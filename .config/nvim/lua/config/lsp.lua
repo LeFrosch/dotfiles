@@ -86,6 +86,9 @@ local servers = {
 
   -- Haskell,
   hls = {},
+
+  -- Starlark
+  starpls = {},
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -95,4 +98,3 @@ for server, settings in pairs(servers) do
   vim.lsp.enable(server)
   vim.lsp.config(server, { capabilities = capabilities, settings = settings })
 end
-
