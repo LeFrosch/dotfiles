@@ -13,6 +13,21 @@ export ZVM_VI_INSERT_ESCAPE_BINDKEY="jj"
 
 export EDITOR="nvim"
 
+# copy/paste aliases on linux
+if [[ $(uname -s) == "Linux" ]]; then
+	alias pbcopy="xclip -i -selection clipboard"
+	alias pbpaste="xclip -o -selection clipboard"
+fi
+
+# function to concatenet all files
+rcat() {
+  find $1 -not -path '*/.*' -type f | while read -r file; do
+    echo "--- File: $file ---"
+    cat "$file"
+    echo ""
+  done
+}
+
 # environment
 [[ -f ~/.zsh_exports ]] && source ~/.zsh_exports
 
