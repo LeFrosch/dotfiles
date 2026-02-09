@@ -26,7 +26,7 @@ map <leader>sg :action FindInPath<CR>
 
 nmap <leader>ss :action FileStructurePopup<CR>
 
-vmap / "yy :execute '/' . @y<CR>
+" vmap / "yy :execute '/' . @y<CR>
 
 " buffer
 nmap <leader>bv :action SplitVertically<CR>
@@ -67,12 +67,9 @@ nmap <leader>fe :action ActivateProjectToolWindow<CR>
 nmap <leader>fs :action ActivateStructureToolWindow<CR>
 
 " bazel
-nmap <leader>bc :action Blaze.EditProjectView<CR>
-" nmap <leader>bc :action Bazel.OpenProjectViewFile<CR>
-nmap <leader>bb :action Blaze.OpenCorrespondingBuildFile<CR>
-" nmap <leader>bb :action Bazel.JumpToBuildFile<CR>
-nmap <leader>bs :action Blaze.FullSyncProject<CR>
-" nmap <leader>bs :action Bazel.BuildAndResyncAction<CR>
+nmap <leader>bc :action Bazel.OpenProjectViewFile<CR>
+nmap <leader>bb :action Bazel.JumpToBuildFile<CR>
+nmap <leader>bs :action Bazel.BuildAndResyncAction<CR>
 
 " yank
 map P "+p 
