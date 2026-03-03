@@ -35,13 +35,13 @@ temp() {
   git checkout -b "temp/$HASH"
 }
 
-claude() {
+workspace() {
   # henerate a random hash using the same method as temp()
   HASH=$(date | sha256sum | awk '{print substr($1, 1, 40)}')
   BRANCH="temp/$HASH"
 
   # create a temporary directory
-  TEMP_DIR=$(mktemp -d -t "fit-${HASH}") || {
+  TEMP_DIR=$(mktemp -d -t "fit-${HASH}.XXXXXX") || {
     echo "Failed to create temporary directory" >&2
     return 1
   }
@@ -53,8 +53,8 @@ claude() {
     return 1
   }
 
-  # execute claude in the temp directory
-  env -C "$TEMP_DIR" claude || {
+  # execute nvim in the temp directory
+  env -C "$TEMP_DIR" nvim . || {
     git worktree remove "$TEMP_DIR" 2>/dev/null
     git branch -D "$BRANCH" 2>/dev/null
     rm -rf "$TEMP_DIR"
@@ -73,8 +73,8 @@ case "$1" in
   clean)
     git clean -dfx
     ;;
-  claude)
-    claude
+  workspace)
+    workspace
     ;;
   upset)
     upset "$2"
