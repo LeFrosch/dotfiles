@@ -64,8 +64,12 @@ workspace() {
 }
 
 case "$1" in
-  rebase|checkout|switch|push)
+  checkout|switch|push)
     git $@ -f
+    ;;
+  rebase)
+    git reset --hard
+    git $@
     ;;
   reset)
     git $@ --hard
