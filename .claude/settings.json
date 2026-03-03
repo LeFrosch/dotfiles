@@ -1,0 +1,23 @@
+{
+  "apiKeyHelper": "cat ~/.claude/api-key",
+  "permissions": {
+    "allow": [
+      "Bash(bazel:*)"
+    ],
+    "defaultMode": "plan"
+  },
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "allowWrite": [
+        "/tmp"
+      ]
+    },
+    "excludedCommands": [
+      "bazel:*"
+    ],
+    "autoAllow": true
+  },
+  "model": "opus"
+}
