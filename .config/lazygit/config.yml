@@ -1,3 +1,6 @@
+keybinding:
+  universal:
+    quit: '<esc>'
 gui:
   border: 'rounded'
   theme:
