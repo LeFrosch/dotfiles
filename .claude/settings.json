@@ -2,10 +2,30 @@
   "apiKeyHelper": "cat ~/.claude/api-key",
   "permissions": {
     "allow": [
-      "Bash(bazel:*)"
+      "Bash(bazel:*)",
+      "Bash(git status *)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git show *)",
+      "Bash(git blame *)",
+      "Bash(git rev-parse *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git fetch *)",
+      "Bash(git stash *)",
+      "Bash(gh pr view *)",
+      "Bash(gh pr list *)",
+      "Bash(gh pr checks *)",
+      "Bash(gh issue view *)",
+      "Bash(gh issue list *)"
+    ],
+    "ask": [
+      "Bash(git:*)",
+      "Bash(gh:*)"
     ],
     "defaultMode": "plan"
   },
+  "model": "opus[1m]",
   "sandbox": {
     "enabled": true,
     "allowUnsandboxedCommands": false,
@@ -19,5 +39,5 @@
     ],
     "autoAllow": true
   },
-  "model": "opus"
+  "effortLevel": "medium"
 }
