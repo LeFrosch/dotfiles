@@ -46,6 +46,7 @@ nmap gd :action GotoDeclaration<CR>
 nmap gI :action GotoImplementation<CR>
 nmap gr :action FindUsages<CR>
 nmap gs :action GotoSuperMethod<CR>
+nmap gt :action GotoTypeDeclaration<CR>
 
 nmap ]i :action GotoNextError<CR>
 nmap [i :action GotoPreviousError<CR>
