@@ -93,6 +93,7 @@ keymap_search('<leader>sg', api.live_grep, '[S]earch by [G]rep')
 keymap_search('<leader>sr', api.resume, '[S]earch [R]esume')
 keymap_search('<Leader>ss', api.lsp_dynamic_workspace_symbols, '[S]earch [S]ymbols')
 keymap_search('<Leader>sc', class_search, '[S]earch [C]lass')
+keymap_search('<Leader>sw', api.git_status, '[S]earch [W]orkingset')
 
 keymap_search('<leader>ds', api.diagnostics, '[D]iagnostics [S]earch')
 
