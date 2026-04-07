@@ -19,10 +19,6 @@
       "Bash(gh issue view *)",
       "Bash(gh issue list *)"
     ],
-    "ask": [
-      "Bash(git:*)",
-      "Bash(gh:*)"
-    ],
     "defaultMode": "plan"
   },
   "model": "opus[1m]",
@@ -35,9 +31,13 @@
       ]
     },
     "excludedCommands": [
-      "bazel:*"
+      "bazel:*",
+      "git:*",
+      "gh:*",
+      "flutter:*",
+      "dart:*",
     ],
     "autoAllow": true
   },
-  "effortLevel": "medium"
+  "effortLevel": "high"
 }
