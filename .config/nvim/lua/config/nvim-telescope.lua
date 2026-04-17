@@ -95,7 +95,7 @@ keymap_search('<Leader>ss', api.lsp_dynamic_workspace_symbols, '[S]earch [S]ymbo
 keymap_search('<Leader>sc', class_search, '[S]earch [C]lass')
 keymap_search('<Leader>sw', api.git_status, '[S]earch [W]orkingset')
 
-keymap_search('<leader>ds', api.diagnostics, '[D]iagnostics [S]earch')
+keymap_search('<leader>sd', api.diagnostics, '[S]earch [D]iagnostics')
 
 vim.keymap.set('n', '<leader>fe', '<cmd>Telescope file_browser<cr>', { desc = '[F]ile [E]xplorer' })
 vim.keymap.set('n', '<leader>fl', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
