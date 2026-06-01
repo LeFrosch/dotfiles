@@ -70,7 +70,13 @@ end
 local gemini_terminal = terminal:new {
   cmd = 'agy',
   hidden = true,
-  direction = 'float'
+  direction = 'float',
+  on_open = function(term)
+    local opts = { buffer = term.bufnr }
+    vim.keymap.set('n', 'gf', function()
+      require('impl.switchterm').goto_file(term)
+    end, opts)
+  end,
 }
 
 local function gemini()

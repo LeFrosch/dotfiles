@@ -33,7 +33,7 @@ local function prev()
   get_or_create():open()
 end
 
-local function goto_file(term)
+function M.goto_file(term)
   -- 1. Get the file path under the cursor
   local cfile = vim.fn.expand('<cfile>')
 
@@ -73,7 +73,7 @@ on_open = function(term)
   vim.keymap.set('n', '<C-j>', prev, opts)
 
   vim.keymap.set('n', 'gf', function()
-    goto_file(term)
+    M.goto_file(term)
   end, opts)
 end
 
