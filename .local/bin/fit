@@ -1,21 +1,26 @@
 #!/bin/bash
 
 upset() {
-  # use the provided upstream if available, otherwise get the current one.
-  if [ -n "$1" ]; then
-    UPSTREAM="$1"
+  # accepted forms:
+  #   upset <remote> <branch>  -> use both as provided
+  #   upset <branch>           -> default remote to origin
+  #   upset                    -> default remote to origin, branch to current
+  if [ -n "$2" ]; then
+    REMOTE="$1"
+    BRANCH="$2"
+  elif [ -n "$1" ]; then
+    REMOTE="origin"
+    BRANCH="$1"
   else
-    UPSTREAM=$(git rev-parse --abbrev-ref @{u} 2>/dev/null)
+    REMOTE="origin"
+    BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
   fi
 
-  # check if the upstream branch is configured
-  if [ -z "$UPSTREAM" ]; then
-    echo "no upstream branch is configured for the current branch and none was provided" >&2
+  # check that a branch could be determined
+  if [ -z "$BRANCH" ]; then
+    echo "could not determine the current branch and none was provided" >&2
     return 1
   fi
-
-  REMOTE=$(echo "$UPSTREAM" | cut -d'/' -f1)
-  BRANCH=$(echo "$UPSTREAM" | cut -d'/' -f2-)
 
   git fetch "$REMOTE" "$BRANCH"
   git reset --hard FETCH_HEAD
@@ -81,7 +86,7 @@ case "$1" in
     workspace
     ;;
   upset)
-    upset "$2"
+    upset "$2" "$3"
     ;;
   feature)
     feature
