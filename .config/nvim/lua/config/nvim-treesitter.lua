@@ -1,15 +1,8 @@
-require('nvim-treesitter.configs').setup {
-  ensure_installed = { 'c', 'lua' },
+require('nvim-treesitter').install { 'c', 'lua' }
 
-  sync_install = true,
-  auto_install = true,
-
-  highlight = {
-    enable = true,
-  },
-
-  ignore_install = { "dockerfile" },
-}
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(args) pcall(vim.treesitter.start, args.buf) end,
+})
 
 require('treesitter-context').setup {
   enable = true,

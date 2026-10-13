@@ -8,6 +8,8 @@ local plugins = {
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    build = ':TSUpdate',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-context',
     },
@@ -31,6 +33,14 @@ local plugins = {
     'folke/which-key.nvim',
     config = function()
       require('config.which-key')
+    end
+  },
+
+  -- Mason
+  {
+    'williamboman/mason.nvim',
+    config = function()
+      require('config.mason')
     end
   },
 
@@ -106,7 +116,7 @@ local plugins = {
   -- Telescope
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    version = '*',
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
@@ -144,6 +154,30 @@ local plugins = {
   },
 }
 
-local opts = {}
+local opts = {
+  ui = {
+    icons = {
+      cmd = 'cmd',
+      config = 'config',
+      event = 'event',
+      favorite = 'favorite',
+      ft = 'ft',
+      import = 'import',
+      init = 'init',
+      keys = 'keys',
+      plugin = 'plugin',
+      require = 'require',
+      runtime = 'runtime',
+      source = 'source',
+      start = 'on',
+      lazy = '',
+      task = '',
+      debug = '* ',
+      loaded = '+',
+      not_loaded = '-',
+      list = { '*', '-', '+', '-' },
+    },
+  },
+}
 
 lazy.setup(plugins, opts)
