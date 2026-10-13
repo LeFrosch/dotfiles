@@ -35,7 +35,7 @@
       "git:*",
       "gh:*",
       "flutter:*",
-      "dart:*",
+      "dart:*"
     ],
     "autoAllow": true
   },
